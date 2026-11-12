@@ -1,0 +1,26 @@
+CREATE TABLE IF NOT EXISTS dash_workspace (
+  id TINYINT UNSIGNED NOT NULL PRIMARY KEY,
+  version INT UNSIGNED NOT NULL DEFAULT 0,
+  initialized BOOLEAN NOT NULL DEFAULT FALSE,
+  updated_at TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3) ON UPDATE CURRENT_TIMESTAMP(3)
+) ENGINE=InnoDB;
+
+INSERT IGNORE INTO dash_workspace (id, version, initialized) VALUES (1, 0, FALSE);
+
+CREATE TABLE IF NOT EXISTS dash_projects (
+  id VARCHAR(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL PRIMARY KEY,
+  position INT UNSIGNED NOT NULL,
+  name VARCHAR(250) NOT NULL,
+  code VARCHAR(100) NOT NULL,
+  details JSON NOT NULL
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS dash_records (
+  project_id VARCHAR(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  register_name VARCHAR(32) NOT NULL,
+  id VARCHAR(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  position INT UNSIGNED NOT NULL,
+  record_data JSON NOT NULL,
+  PRIMARY KEY (project_id, register_name, id),
+  CONSTRAINT dash_records_project_fk FOREIGN KEY (project_id) REFERENCES dash_projects(id) ON DELETE CASCADE
+) ENGINE=InnoDB;

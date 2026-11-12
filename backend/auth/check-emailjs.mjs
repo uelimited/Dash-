@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {sendAdminOTP} from './mail.mjs';
+const settings={adminEmail:'admin@example.invalid',emailjsServiceId:'test-service',emailjsTemplateId:'test-template',emailjsPublicKey:'test-public',emailjsPrivateKey:'test-private'};
+let captured;
+await sendAdminOTP(settings,settings.adminEmail,'123456',async(url,options)=>{captured={url,body:JSON.parse(options.body)};return new Response('OK');});
+assert.equal(captured.url,'https://api.emailjs.com/api/v1.0/email/send');
+assert.deepEqual(captured.body,{service_id:'test-service',template_id:'test-template',user_id:'test-public',accessToken:'test-private',template_params:{to_email:settings.adminEmail,email:settings.adminEmail,to_name:'Dash administrator',otp_code:'123456',passcode:'123456',time:captured.body.template_params.time,expiry_minutes:5,app_name:'Dash'}});
+const params=captured.body.template_params;
+assert.match(params.time,/IST$/);
+const rendered='OTP: {{passcode}}. Valid for {{expiry_minutes}} minutes till {{time}}.'.replace(/\{\{(\w+)\}\}/g,(_,key)=>params[key]??'');
+assert.match(rendered,/OTP: 123456\. Valid for 5 minutes till .+ IST\./);
+await assert.rejects(()=>sendAdminOTP(settings,'other@example.invalid','123456',()=>{throw Error('Must not send');}),/ADMIN_ONLY/);
+await assert.rejects(()=>sendAdminOTP({...settings,emailjsServiceId:''},settings.adminEmail,'123456'),/MAIL_NOT_CONFIGURED/);
+await assert.rejects(()=>sendAdminOTP(settings,settings.adminEmail,'123456',async()=>new Response('Private provider details',{status:500})),/MAIL_DELIVERY_FAILED/);
+console.log('PASS: EmailJS payload, recipient restriction, required configuration and safe delivery errors. No real email sent.');

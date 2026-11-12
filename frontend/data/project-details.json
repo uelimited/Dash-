@@ -1,0 +1,86 @@
+[
+  {
+    "projectId": "prestige-bkc",
+    "id": "prestige-profile-20261103",
+    "values": {
+      "client": "Bharatnagar Buildcon LLP (Prestige Group)",
+      "location": "BKC, Mumbai",
+      "type": "Tower",
+      "contract": 1865000000,
+      "end": "2027-09-30",
+      "trades": [
+        "HVAC",
+        "Electrical",
+        "Plumbing",
+        "Firefighting",
+        "Civil",
+        "BMS",
+        "ELV",
+        "Coordination"
+      ],
+      "notes": "Prestige BKC 101, Plot Y — Office & Hotel. LOI PEPL/PRESTIGEBKC101/006 dated 27-May-2026: ₹186.50 Cr excluding GST. Employer: Bharatnagar Buildcon LLP. MEP scope: HVAC, electrical, plumbing, FPS, FAPA, ELV/security, BMS and fire sealant. PMC: CBRE; cost consultant: Turner & Townsend; GC: L&T. Completion 30-Sep-2027 is the contractual programme in the 09-Jun scope summary, not measured site progress. Project cost budget, paid costs and billing are not provided.",
+      "budget": null,
+      "retention": null,
+      "paymentDays": null,
+      "advance": null
+    },
+    "source": {
+      "file": "LOI-MEP-BKC101 Plot Y.pdf; Prestige_BKC_Plot_Y_MEP_Scope_of_Work.docx",
+      "sheet": "LOI page 1; project snapshot / milestone table",
+      "asOf": "2026-06-09",
+      "updatedAt": "2026-11-03T08:05:06Z",
+      "note": "LOI amount verified against the signed page. Cost budget and payment records have not been loaded."
+    }
+  },
+  {
+    "projectId": "ctrls-hyd-gf",
+    "id": "ctrls-profile-20261103",
+    "values": {
+      "client": "CtrlS Datacenters Limited",
+      "location": "Pharmacity, Hyderabad",
+      "type": "Data centre",
+      "contract": 522500000,
+      "retention": 5,
+      "notes": "Ground-floor MEP works. LOI CTRLS/LOI/26-27/HYD/103/015 dated 20-Aug-2026: ₹52.25 Cr excluding GST. Scope includes electrical, HVAC, IBMS/BMS, Maxcool, CCTV, FPS and PHE; testing L1–L5. LOI refers to Chandanvelly / Pharmacity sites; the supplied tracker is PCDC Pharmacity. Advance entitlement 25% against ABG; receipts have not been evidenced. Payment milestones use 30 working days following certification, so no calendar-day payment term has been inferred. Completion refers to Annexure C; no date inferred. Cost budget and paid costs not provided.",
+      "budget": null,
+      "paymentDays": null,
+      "advance": null
+    },
+    "source": {
+      "file": "LOI - Unique - HYD.pdf",
+      "sheet": "Pages 1–3, 8",
+      "asOf": "2026-08-20",
+      "updatedAt": "2026-11-03T08:05:06Z",
+      "note": "Contract scope and value; this is not a record of procurement commitments or payments."
+    }
+  },
+  {
+    "projectId": "bitsom-heat-pump",
+    "id": "bitsom-profile-20261103",
+    "values": {
+      "client": "BITS Pilani / BITSoM",
+      "location": "Kalyan, Maharashtra",
+      "type": "Campus",
+      "contract": 100000000,
+      "trades": [
+        "HVAC",
+        "Electrical",
+        "Plumbing",
+        "Civil",
+        "BMS"
+      ],
+      "notes": "SITC of the heat-pump hot-water system for Student Hostels 01–05. Order confirmation dated 25-May-2026: ₹10 Cr plus GST. Completion: six months from issue of LOI; exact LOI date not established, so no completion date inferred. Separate BITSoM BMS project folder is excluded; heat-pump controls remain within this project. The September material tracker contains procurement updates, not item-level TDS approval records. July approval log describes consolidated low/high-side packages and has not been expanded into assumed individual approvals. Cost budget, billing and paid costs not provided.",
+      "budget": null,
+      "retention": null,
+      "paymentDays": null,
+      "advance": null
+    },
+    "source": {
+      "file": "Re_ BITS Pilani_Heat Pump for Student Hostel 01 to 05 - Order Confirmation-Mail.pdf",
+      "sheet": "Pages 1–2",
+      "asOf": "2026-05-25",
+      "updatedAt": "2026-11-03T08:05:06Z",
+      "note": "Award amount excludes GST. Contract start/completion dates await the issued LOI."
+    }
+  }
+]

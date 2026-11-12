@@ -1,0 +1,15 @@
+node_modules/
+.next*/
+frontend/node_modules/
+frontend/.next*/
+archive/
+*.tsbuildinfo
+.env
+.env.local
+backend/.venv/
+backend/__pycache__/
+backend/*.db
+.dash-dev.lock
+
+backend/auth/microsoft-cache.enc
+backend/auth/*.tmp

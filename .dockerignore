@@ -1,0 +1,15 @@
+**/node_modules
+**/.next*
+**/.env*
+**/*.log
+**/*dump*.sql
+**/*backup*.sql
+**/*.db
+**/*.enc
+**/*.tmp
+**/*.tsbuildinfo
+archive
+.git
+.codex
+.agents
+work

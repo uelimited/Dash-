@@ -1,0 +1,11 @@
+{
+  "name": "unique-engineers-dash",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "start": "npm --prefix frontend run start",
+    "db:setup": "powershell -NoProfile -File backend/setup-mysql.ps1",
+    "db:check": "npm --prefix backend run check"
+  }
+}

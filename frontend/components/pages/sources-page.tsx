@@ -1,0 +1,10 @@
+"use client";
+import React from "react";
+import {Plus} from "lucide-react";
+import {money,dateLabel} from "@/lib/project";
+import {Status,SectionTitle,Go,Empty} from "../shared/page-ui";
+import type {PageProps} from "./types";
+
+export default function SourceFilesPage({p,openRow,edit}:PageProps){
+  return (<><section className="surface"><SectionTitle>Current sources</SectionTitle><div className="table-scroll"><table><thead><tr><th>Register</th><th>File</th><th>Sheet</th><th>Source date</th><th>Updated</th><th>Notes</th></tr></thead><tbody>{["project","tds","procurement","design"].map(key=>{const s=p.sources?.[key];return <tr key={key}><td>{key==="project"?"Project details":key==="tds"?"TDS":key==="design"?"Drawings & BIM":"Procurement"}</td><td>{s?.file||(p.demo?"Sample data":"No file applied")}{!!s?.preservedManualFields&&<small className="source-preserved">{s.preservedManualFields} manual values retained for review</small>}</td><td>{s?.sheet||"—"}</td><td>{s?dateLabel(s.asOf):"—"}</td><td>{s?dateLabel(s.updatedAt.slice(0,10)):"—"}</td><td style={{minWidth:260,maxWidth:380,whiteSpace:"normal"}}>{s?.note||"—"}</td></tr>})}</tbody></table></div></section><div className="maintenance-note"><h2>Updating the dashboard</h2><p>For a quick change, use the pencil beside a material or click a drawing. Edit the fields and save. Use Add row for a new material; it appears in both TDS and procurement.</p><p>For a bulk update, share the latest Excel tracker in chat and name {p.name} (project ID: {p.id}). Material and drawing IDs stay consistent. Missing columns preserve existing values. Manual changes are reviewed before an Excel value replaces them.</p><p>Each row has a dated History with previous and new values. Excel updates also record the filename, sheet and source date.</p></div>{p.history.length>0&&<section className="surface spaced"><SectionTitle>Update history</SectionTitle><div className="history-list">{p.history.slice(0,8).map(r=><div key={r.id}><span>{r.name}</span><small>{dateLabel(r.date.slice(0,10))}</small></div>)}</div></section>}</>);
+}
